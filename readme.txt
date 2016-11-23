@@ -1,5 +1,6 @@
 === Jasmine Test Runner ===
 Contributors: timph
+Donate link: https://paypal.me/timph
 Tags: jasmine, js unit test, unit tests, javascript testing
 Requires at least: 4.0
 Tested up to: 4.6
@@ -52,6 +53,7 @@ A: Yes!  All settings for the plugin are configured with the 'jasmine_test_runne
 
 This shows an example of adding specific unit tests that your plugin would run if a user has Jasmine Test Runner enabled:
 
+```
 /**
  * This will load a set of unit tests located in 
  * a plugin's /tests/ directory.
@@ -69,11 +71,12 @@ function add_unit_tests( $settings ) {
 }
 
 add_filter( 'jasmine_test_runner', 'add_unit_tests' );
-
+```
 
 Q: Can I force the test runner to load on a specific set of pages?
 A: Definitely!  You may want to have the test runner load everytime on a certain page or section the admin, so this is an example of overriding that setting as well:
 
+```
 /**
  * This will load the Jasmine test runner on a page called
  * 'toplevel_page_boldgrid-inspirations'.
@@ -84,10 +87,12 @@ function load_inspirations_jtrunner( $settings ) {
 }
 
 add_filter( 'jasmine_test_runner', 'load_inspirations_jtrunner' );
+```
 
 Q: What if I would like to have the test runner always running, and not append a query string to the URL each time?
 A: This can also be done, but keep in mind that running it all the time, and having multiple tests running can cause negative performance impacts.
 
+```
 /**
  * This forces Jasmine Test Runner to always run in admin.
 function force_load_jtrunner( $settings ) {
@@ -96,6 +101,7 @@ function force_load_jtrunner( $settings ) {
 }
 
 add_filter( 'jasmine_test_runner', 'force_load_jtrunner' );
+```
 
 Q: How can I force the tests to run randomly?
 A: Jasmine Test Runner can run the tests in random order by adding &random=true to your query string.
@@ -105,6 +111,11 @@ A: The seed number and seed URL are displayed in the Jasmine Test Runner status 
 
 Q: Our project uses it's own seed generation for random tests, how do I implement this?
 A: If you wish to use your own seed generatator algorithm, you can specify the resulting seed directly by appending &seed=YOUR_SEED.  Where YOUR_SEED is, should be the resulting seed you've generated.
+
+== Screenshots ==
+
+1. **Passed Tests** - Jasmine Test Runner will give you feedback based on the tests you choose to run.  This screenshot shows you a set of passed Jasmine tests in the WordPress Page/Post editor screen.
+2. **Failed Tests** Failed tests also provide you immediate feedback, so you instantly know which test failed, why, and a stack trace for debugging.
 
 == Changelog ==
 
