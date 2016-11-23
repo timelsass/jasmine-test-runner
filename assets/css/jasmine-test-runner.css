@@ -1,6 +1,6 @@
 .jasmine-test-runner {
 	height: 300px;
-	margin-left: -4px;
+	margin-left: -20px;
 	overflow-y: auto;
 	resize: vertical;
 	border-bottom: 1px black solid;
@@ -100,7 +100,11 @@
 	content: "\f335";
 	color: red;
 }
+.jasmine-test-runner .jasmine-failures {
+	margin-left: 20px;
+}
 @media screen and (max-width: 782px) {
+	.jasmine-test-runner,
 	.jasmine-test-runner.jasmine_html-reporter{
 		margin-left: -10px;
 	}
