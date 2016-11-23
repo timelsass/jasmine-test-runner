@@ -38,7 +38,7 @@ You can begin running your Jasmine tests as needed.  Just add a query arg to you
 
 Path/to/tests can have a leading or a trailing slash for the directory.  This directory is relative to /wp-content/ directory, so that themes and plugins can utilize the test runner.  The directory should contain only your jasmine tests as it will enqueue all *.js files located in that directory.
 
-== FAQ ==
+== Frequently Asked Questions ==
 
 Q: How do I use Jasmine Test Runner?
 A: The simplest way to utilize it is by adding a query arg to your URL that contains the path to your tests.
@@ -72,7 +72,6 @@ add_filter( 'jasmine_test_runner', 'add_unit_tests' );
 
 
 Q: Can I force the test runner to load on a specific set of pages?
-
 A: Definitely!  You may want to have the test runner load everytime on a certain page or section the admin, so this is an example of overriding that setting as well:
 
 /**
@@ -87,7 +86,6 @@ function load_inspirations_jtrunner( $settings ) {
 add_filter( 'jasmine_test_runner', 'load_inspirations_jtrunner' );
 
 Q: What if I would like to have the test runner always running, and not append a query string to the URL each time?
-
 A: This can also be done, but keep in mind that running it all the time, and having multiple tests running can cause negative performance impacts.
 
 /**
@@ -98,3 +96,17 @@ function force_load_jtrunner( $settings ) {
 }
 
 add_filter( 'jasmine_test_runner', 'force_load_jtrunner' );
+
+Q: How can I force the tests to run randomly?
+A: Jasmine Test Runner can run the tests in random order by adding &random=true to your query string.
+
+Q: A random seed has failed, how do I recall that test?
+A: The seed number and seed URL are displayed in the Jasmine Test Runner status bar when you've selected to run random or a seed.  For failed tests the bar appears red.  If you need to obtain this seed programatically, .jasmine-seed-bar class contains the link to run the seed, and the link text is the seed number.
+
+Q: Our project uses it's own seed generation for random tests, how do I implement this?
+A: If you wish to use your own seed generatator algorithm, you can specify the resulting seed directly by appending &seed=YOUR_SEED.  Where YOUR_SEED is, should be the resulting seed you've generated.
+
+== Changelog ==
+
+= 0.1 =
+* Initial commit.
